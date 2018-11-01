@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JS_lesson_1_hometask_1</title>
+  <link rel="stylesheet" type="text/css" href="CSS/style.css">
+</head>
+<body>
+  <form name="form" method="post" action="#" onsubmit="return false;">
+    Cases
+    <input type="text" name="cases" size="10" value="1000">
+    Runs
+    <input type="text" name="runs" size="10" value="1"><Br>
+    Execute every iteration: <Br>
+    <input type="radio" name="execute" value="1" checked> Nothing<Br>
+    <input type="radio" name="execute" value="2"> Log information into console<Br>
+    <input type="radio" name="execute" value="3"> Execute some JS code (j - run number; i - case number):<Br>
+    <textarea name="code" cols="40" rows="2">var a = i; var b = a * 2;</textarea><Br>
+    <input type="submit" value="Preview constructions" onclick="previewConstructions(event);">
+    <input type="submit" value="Start testing" onclick="startTesting(event);">
+  </form>
+  <script src='./JS/ui.js'></script>
+  <script src='./JS/engine.js'></script>
+</body>
+</html>

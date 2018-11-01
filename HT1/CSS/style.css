@@ -1,0 +1,25 @@
+div {
+  width: 45%;
+  float: left;
+//  border: solid black 1px;
+  padding: 2px;
+  margin: 2px;
+  white-space: pre-wrap;
+}
+
+#result {
+  width: 97%;
+  float: none;
+  border: solid red 2px;
+  padding: 2px;
+  margin: 10px 2px 2px 2px;
+  color: red;
+}
+
+#switchConstruction {
+  border-right: solid #888888 2px;
+}
+
+#ifConstruction {
+  padding-left: 10px;
+}
