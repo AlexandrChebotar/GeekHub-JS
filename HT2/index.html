@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JS_lesson_1_hometask_1</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+  </head>
+  <body>
+    <form name="form" method="post" action="#" onsubmit="return false;">
+      Code for validation:<Br>
+      <textarea name="code" cols="60" rows="5">if (errors.length == 0) {
+    return false;
+} else {
+  return errors.sort(function (a, b) {return a - b;});
+}</textarea><Br>
+      <input type="submit" value="Validate" onclick="startValidating(event);">
+      <button onclick="clearResults();">Clear results</button>
+    </form>    
+    <div class="result"></div>
+    
+    <script src='./JS/ui.js'></script>
+    <script src='./JS/engine.js'></script>
+    <script src='./JS/template.js'></script>
+  </body>
+</html>

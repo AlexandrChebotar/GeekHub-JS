@@ -1,0 +1,19 @@
+div img {
+  float: left;
+}
+
+.result {
+  clear: : both;
+}
+
+pre {
+  margin-left: 25px;
+  border-bottom: solid 1px #999999;
+  padding-bottom: 5px;
+}
+
+.invalid strong {
+  color: red;
+  font-weight: 800;
+  font-size: 12pt;
+}
