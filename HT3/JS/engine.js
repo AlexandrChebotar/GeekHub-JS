@@ -205,7 +205,7 @@
   
   function putIntoWindow(propertyName, variable) {
     if (window.hasOwnProperty(propertyName)) {
-      throw new Error(varName + ' already exists')
+      throw new Error(propertyName + ' already exists')
     } else {
     // Вариант через value/writable. Ошибка будет генерироваться только при 'use strict' 
       //~ Object.defineProperty(window, propertyName, {
