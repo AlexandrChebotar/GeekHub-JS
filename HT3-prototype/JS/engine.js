@@ -1,38 +1,10 @@
 "use strict"
 
 +function() {
-  
-  putIntoWindow('Chat', Chat);
-  putIntoWindow('Message', Message);
-  putIntoWindow('User', User);
-  
-  Chat.chats = [];
-  User.users = [];
 
 // Конструктор чата  
   function Chat(chatName) {  
     if (!arguments[0]) throw new Error ('chatName is undefined');
-       
-    Chat.getChats = function() {
-      return Chat.chats;
-    };
-    Chat.showChats = function(user) {
-      for (var i = 0; i < Chat.chats.length; i++) {
-        var chatInfo = '';
-        chatInfo += Chat.chats[i].name + ': ' + Chat.chats[i].history.length + ' messages';
-        if (user) {
-          chatInfo += ' (' + Chat.chats[i].countUnreaded(user) + ' unreaded)';
-        }
-        console.log(chatInfo);
-      }
-    };
-    Chat.getChatByName = function(chatName) {
-      for (var i = 0; i < Chat.chats.length; i++) {
-        if (Chat.chats[i].name == chatName) {
-          return Chat.chats[i];
-        }
-      }
-    };
     
     chatName = chatName.toString()
     if (Chat.getChatByName(chatName)) throw new Error ('chat ' + chatName + ' already exists') 
@@ -42,6 +14,29 @@
     this.history = [];
     this.loggedUsers = [];
   }
+  
+  Chat.chats = [];
+  
+  Chat.getChats = function() {
+    return Chat.chats;
+  };
+  Chat.showChats = function(user) {
+    for (var i = 0; i < Chat.chats.length; i++) {
+      var chatInfo = '';
+      chatInfo += Chat.chats[i].name + ': ' + Chat.chats[i].history.length + ' messages';
+      if (user) {
+        chatInfo += ' (' + Chat.chats[i].countUnreaded(user) + ' unreaded)';
+      }
+      console.log(chatInfo);
+    }
+  };
+  Chat.getChatByName = function(chatName) {
+    for (var i = 0; i < Chat.chats.length; i++) {
+      if (Chat.chats[i].name == chatName) {
+        return Chat.chats[i];
+      }
+    }
+  };
 
   Chat.prototype.login = function() {
     for (var i = 0; i < arguments.length; i++) {
@@ -89,15 +84,18 @@
     }
     var i = this.history.length;
     while (i) {
+      console.log(i);
       var message = this.history[--i];
       if (message.readBy[user.id]) {
+        i++;
         break;
       }
     }
-    unreadedMessages = this.history.length - i  - 1;
+    console.log('end ' + i);
+    var unreadedMessages = this.history.length - i;
     numberOfMessages = (unreadedMessages < numberOfMessages) ? unreadedMessages : numberOfMessages;
     while (numberOfMessages) {
-      message = this.history[++i];
+      message = this.history[i++];
       message.read(user);
       readed.push(message);
       numberOfMessages--;
@@ -126,7 +124,7 @@
     this.time = new Date;
     this.user = user;
     this.text = massageText;
-    this.readBy = [];
+    this.readBy = {};
   }
 
   Message.prototype.read = function(user) {
@@ -149,28 +147,28 @@
     
     User.users.push(this);
     
-    User.showUsers = function(userName) {
-      for (var i = 0; i < User.users.length; i++) {
-        if (userName && User.users[i].name != userName) continue;
-        console.log('id: ' + User.users[i].id + ', name: ' + User.users[i].name);
-      }
-    };
-    User.getUserbyId = function(id) {
-      if (id <= User.users.length) {
-        for (var i = 0; i < User.users.length; i++) {
-          if (User.users[i].id == id) {
-            return User.users[i];
-          }
-        }
-      }
-      throw new Error('User with id: ' + id + ' not exists');
-    };
-    
     this.id = User.users.length - 1;
     this.name = userName.toString();
-    
-   
   }
+  
+  User.users = [];
+  
+  User.showUsers = function(userName) {
+    for (var i = 0; i < User.users.length; i++) {
+      if (userName && User.users[i].name != userName) continue;
+      console.log('id: ' + User.users[i].id + ', name: ' + User.users[i].name);
+    }
+  };
+  User.getUserbyId = function(id) {
+    if (id <= User.users.length) {
+      for (var i = 0; i < User.users.length; i++) {
+        if (User.users[i].id == id) {
+          return User.users[i];
+        }
+      }
+    }
+    throw new Error('User with id: ' + id + ' not exists');
+  };
 
   User.prototype.setDefaultChat = function(chat) {
     this.defaultChat = chat;
@@ -217,7 +215,8 @@
       chat.logMessage(readed[i]);
     }
   };
-  
+
+// Функция записи переменной в объект Window
   function putIntoWindow(propertyName, variable) {
     if (window.hasOwnProperty(propertyName)) {
       throw new Error(propertyName + ' already exists')
@@ -228,6 +227,10 @@
     });
     }  
   }
+  
+  putIntoWindow('Chat', Chat);
+  putIntoWindow('Message', Message);
+  putIntoWindow('User', User);
 
 }()
 
