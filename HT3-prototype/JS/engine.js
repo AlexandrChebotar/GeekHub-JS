@@ -223,7 +223,7 @@
     } else {   
     Object.defineProperty(window, propertyName, {
       get: function() {return variable;},
-      set: function() {throw new Error(propertyName + 'already exists and read-only');}
+      set: function() {throw new Error(propertyName + ' already exists and read-only');}
     });
     }  
   }
