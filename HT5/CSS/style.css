@@ -1,0 +1,209 @@
+html {
+  margin: 0;
+  padding: 0;
+}  
+  
+body {
+  margin: 0;
+  padding: 120px;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 9pt;
+  height: calc(100vh - 240px);
+}
+
+.clear {
+  clear: both;
+}
+
+p {
+  margin: 7px 0 7px 0;
+}
+
+.button {
+  position: absolute;
+  top: inherit;
+  bottom: inherit;
+  left: inherit;
+  right: inherit;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+} 
+
+.hidden {
+  display: none;
+}
+
+.popup {
+  position: absolute;
+  margin: 2px;
+  
+}
+
+.popup .content {
+  padding: 0 4px 0 4px;
+  border: 2px solid #777;
+  background-color: rgba(219, 219, 219, 0.5);
+  color: #777;
+  font-weight: bold;
+}
+
+.scoreboard {
+  top: 5px;
+  left: 5px;  
+}
+
+.scoreboard .content {
+  text-align: center;
+  font-size: 12pt;
+}
+
+.player1, .player2 {
+  float: left;
+}
+
+.player1 {
+  margin-left: 40px;
+  color: rgb(172, 53, 196);
+}
+
+.player2 {
+  margin-left: 10px;
+  color: rgb(196, 146, 53);
+}
+
+.active .name {
+  text-decoration: underline;
+}
+
+.unactive .score, .unactive .time {
+  color: #777;
+}
+
+.score {
+  font-size: 14pt;
+}
+
+.leader .score::before {
+  content: '*';
+}
+
+.content > .time {
+  text-align: left;
+  font-size: 14pt;
+}
+
+.dashboard {
+  bottom: 5px;
+  left: 5px;
+}
+
+.dashboard .content {
+  /* width: 125px;
+  height: 125px; */
+}
+
+.up {
+  background-image: url(../IMG/up.png);
+  left: 72px;
+  bottom: 75px;
+}
+
+.down {
+  background-image: url(../IMG/down.png);
+  left: 72px;
+  bottom: 5px;
+}
+
+.left {
+  background-image: url(../IMG/left.png);
+  left: 37px;
+  bottom: 40px;
+}
+
+.right {
+  background-image: url(../IMG/right.png);
+  left: 107px;
+  bottom: 40px;
+}
+
+.center {
+  background-image: url(../IMG/center.png);
+  left: 72px;
+  bottom: 40px;
+}
+
+.settings {
+  margin-bottom: 110px;
+}
+
+.control {
+
+}
+
+.help {
+  top: 5px;
+  right: 5px;
+}
+
+.scoreboard .open {
+  background-image: url(../IMG/scoreboard.png);
+}
+
+.dashboard .open {
+  background-image: url(../IMG/dashboard.png);
+}
+
+.help .open {
+  background-image: url(../IMG/help.png);
+}
+
+.close {
+  background-image: url(../IMG/close.png);
+}
+
+.shortcut {
+  padding: 0 2px 0 2px;
+  border: 1px solid darkred;
+  color: darkred;
+  font-weight: bold;
+}
+
+.field {
+  overflow: hidden;
+}
+
+.unit {
+  float: left;
+}
+
+.small .unit {
+  width: 16px;
+  height: 16px;
+  background-image: url(../IMG/grid_16.png)
+}
+
+.medium .unit {
+  width: 24px;
+  height: 24px;
+  background-image: url(../IMG/grid_24.png)
+}
+
+.big .unit {
+  width: 32px;
+  height: 32px;
+  background-image: url(../IMG/grid_32.png)
+}
+
+.small .unit:hover {
+  background-image: url(../IMG/dot_16.png)
+}
+
+.medium .unit:hover {
+  background-image: url(../IMG/dot_24.png)
+}
+
+.big .unit:hover {
+  background-image: url(../IMG/dot_32.png)
+}
