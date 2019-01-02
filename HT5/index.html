@@ -4,44 +4,48 @@
     <meta charset="utf-8" />
     <title>Geekhub-JS_HT4_Points-game</title>
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <script src='./JS/ui.js'></script>
+<!--
     <script src='./JS/engine.js'></script>
+-->
+    <script src='./JS/ui.js'></script>
   </head>
-  <body>
+  <body class="player1">
     <div class="popup scoreboard">
-      <div class="open button hidden"></div>
-      <div class="close button"></div>
-      <div class="content">
-        <div class="player1 active ">
+      <div class="open button "></div>
+      <div class="close button hidden"></div>
+      <div class="content hidden">
+        <div class="player1 ">
           <div class="name">Player1</div>
           <div class="score">1210</div>
           <div class="time">0:59</div>
         </div>
-        <div class="player2 unactive leader">
+        <div class="player2 leader">
             <div class="name">Player2</div>
             <div class="score">1520</div>
             <div class="time">0:00</div>
         </div>
-        <div class="time ">0:25:15</div>
-      </div>
-      
+        <div class="clear"></div>
+        <div class="time ">00:25:15</div>
+        <div class="pause button "></div>
+        <div class="resign button "></div>
+        <div class="clear"></div>
+        <div class="start disabled">START</div>
+      </div>     
     </div>
-    <div class="popup dashboard">
-        <div class="open button hidden"></div>
-        <div class="close button "></div>
-        <div class="content ">
-          <form class="settings">
-            <input type="checkbox" name="timecontrol"> timecontrol</br>
-            <input type="checkbox" name="points"> points</br>
-            <input type="checkbox" name="timecontrol"> timecontrol</br>
+    
+    <div class="popup settings">
+        <div class="open button "></div>
+        <div class="close button hidden"></div>
+        <div class="content hidden">
+          <form name="settings" class="settings">
+            <div class="disabled"><input type="text" name="timecontrol" class="right">Размер поля по вертикали</div>
+            <div class="disabled"><input type="text" name="timecontrol" class="right">Размер поля по горизонтали</div>
+            <div class=""><input type="text" name="timecontrol" value="30" class="right">Общий лимит времени (min)</div>
+            <div class=""><input type="text" name="timecontrol" value="60" class="right">Лимит времени на ход (sec)</div>
+            <div class="disabled"><input type="checkbox" name="timecontrol" class="right">Накапливать неиспользованное врямя</div>
+            <div class="disabled"><input type="text" name="timecontrol" class="right">Количество балов для победы</div>
+            <div class="disabled"><input type="text" name="timecontrol" class="right">Разница балов для победы</div>
           </form>
-          <div class="control">
-            <div class="up button"></div>
-            <div class="down button"></div>
-            <div class="left button"></div>
-            <div class="right button"></div>
-            <div class="center button"></div>
-          </div>
         </div>
     </div>
 
@@ -49,12 +53,15 @@
       <div class="open button "></div>
       <div class="close button hidden"></div>
       <div class="content hidden">
-        <p><span class="shortcut">Ctrl+Alt+N</span> - новая игра</p>
+        <h3>Цель игры:</h3>
+        <p>Окружить точки и замкнутые образования противника, захватив при этом как можна больше территории</p>
+        <h3>Сочетания клавиш:</h3>
+        <p><span class="shortcut">Ctrl+Alt+Enter</span> - новая игра</p>
         <p><span class="shortcut">Ctrl+Alt+Esc</span> - сдаться</p>
-        <p><span class="shortcut">Ctrl+Alt+C</span> - переключить отображение панели управления</p>
-        <p><span class="shortcut">Ctrl+Alt+V</span> - переключить отображение условий победы</p> 
-        <p><span class="shortcut">Ctrl+Alt+M</span> - переключить отображение управляющих кнопок</p>
-        <p><span class="shortcut">Ctrl+Alt+?</span> - переключить отображение справки</p>
+        <p><span class="shortcut">Ctrl+Alt+B</span> - переключить отображение табло</p>
+        <p><span class="shortcut">Ctrl+Alt+S</span> - переключить отображение настроек</p> 
+        <p><span class="shortcut">Ctrl+Alt+N</span> - переключить отображение навигации</p>
+        <p><span class="shortcut">Ctrl+Alt+H</span> - переключить отображение справки</p>
         <p><span class="shortcut">Ctrl+Alt+NumPlus</span> - приблизить карту</p>
         <p><span class="shortcut">Ctrl+Alt+NumMinus</span> - удалить карту</p>
         <p><span class="shortcut">Ctrl+Alt+Up</span> - переместить точку наблюдения вверх</p>
@@ -66,20 +73,29 @@
         <p><span class="shortcut">Ctrl+Alt+MouseRightClick</span> - панель управления </p>      
       </div>
     </div>
+    
+    <div class="popup navigation">
+        <div class="open button "></div>
+        <div class="close button hidden"></div>
+        <div class="content hidden">
+          <div class="minimap hidden"></div>
+          <div class="control">
+            <div class="moveUp button"></div>
+            <div class="moveDown button"></div>
+            <div class="moveLeft button"></div>
+            <div class="moveRight button"></div>
+            <div class="moveCenter button"></div>
+            <div class="zoomIn button"></div>
+            <div class="zoomOut button"></div>
+          </div>
+        </div>
+    </div>   
 
-    <div class="field medium">
-      <div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div>
-      <div class="clear"></div>
-      <div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div>
-      <div class="clear"></div>
-      <div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div>
-      <div class="clear"></div>
-      <div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div>
-      <div class="clear"></div>
-      <div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div>
-      <div class="clear"></div>
-      <div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div><div class="unit"></div>
-      <div class="clear"></div>
+    <div class="fieldContainer">
+      <div class="field medium">
+      </div>
     </div>
+    
+     
   </body>
 </html>

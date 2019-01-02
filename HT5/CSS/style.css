@@ -5,11 +5,36 @@ html {
   
 body {
   margin: 0;
+/*
   padding: 120px;
+*/
   position: relative;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 9pt;
-  height: calc(100vh - 240px);
+  height: 100vh;
+  width: 100%;
+/*
+  overflow: hidden;
+*/
+}
+
+.fieldContainer {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.field {
+/*
+  overflow: hidden;
+*/
+/*
+  cursor: none;
+*/
+}
+
+.right {
+  float: right;
 }
 
 .clear {
@@ -44,7 +69,7 @@ p {
 .popup .content {
   padding: 0 4px 0 4px;
   border: 2px solid #777;
-  background-color: rgba(219, 219, 219, 0.5);
+  background-color: rgba(219, 219, 219, 0.7);
   color: #777;
   font-weight: bold;
 }
@@ -57,28 +82,29 @@ p {
 .scoreboard .content {
   text-align: center;
   font-size: 12pt;
+  height: 112px;
 }
 
-.player1, .player2 {
+.scoreboard .player1, .scoreboard .player2 {
   float: left;
 }
 
-.player1 {
+.scoreboard .player1 {
   margin-left: 40px;
-  color: rgb(172, 53, 196);
+  
 }
 
-.player2 {
+.scoreboard .player2 {
   margin-left: 10px;
-  color: rgb(196, 146, 53);
+  
 }
 
-.active .name {
-  text-decoration: underline;
-}
+.player1 .player1, .player1>.name {
+  color: rgb(25,125,125);
+} 
 
-.unactive .score, .unactive .time {
-  color: #777;
+.player2 .player2, .player2>.name {
+  color: rgb(125,25,125);
 }
 
 .score {
@@ -89,74 +115,139 @@ p {
   content: '*';
 }
 
-.content > .time {
+.content > .time, .start {
+  float: left;
   text-align: left;
+/*
   font-size: 14pt;
+*/
+/*
+  width: 50%;
+*/
 }
 
-.dashboard {
-  bottom: 5px;
-  left: 5px;
+.pause {
+  background-image: url(../IMG/pause.png);
+  left: 90px;
+  margin-top: 5px;
 }
 
-.dashboard .content {
-  /* width: 125px;
-  height: 125px; */
-}
-
-.up {
-  background-image: url(../IMG/up.png);
-  left: 72px;
-  bottom: 75px;
-}
-
-.down {
-  background-image: url(../IMG/down.png);
-  left: 72px;
-  bottom: 5px;
-}
-
-.left {
-  background-image: url(../IMG/left.png);
-  left: 37px;
-  bottom: 40px;
-}
-
-.right {
-  background-image: url(../IMG/right.png);
-  left: 107px;
-  bottom: 40px;
-}
-
-.center {
-  background-image: url(../IMG/center.png);
-  left: 72px;
-  bottom: 40px;
+.resign {
+  background-image: url(../IMG/resign.png);
+  left: 130px;
+  margin-top: 5px;
+  
 }
 
 .settings {
-  margin-bottom: 110px;
+  bottom: 5px;
+  left: 5px;
+/*
+  text-align: justify;
+*/
+
+}
+
+form.settings > div {
+  width: 280px;
+  height:20px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.settings form {
+  margin-left: 40px;
+}
+
+input {
+  display: inline-block;
+  border: 1px solid #777;
+  color: #777;
+  text-align: right;
+  font-weight: bold;
+}
+
+.disabled {
+  color: #999;
+}
+
+input[type="text"] {
+    width: 80px;
+}
+
+
+.navigation {
+  bottom: 5px;
+  right: 5px;
+}
+
+.moveUp {
+  background-image: url(../IMG/up.png);
+  right: 72px;
+  bottom: 75px;
+}
+
+.moveDown {
+  background-image: url(../IMG/down.png);
+  right: 72px;
+  bottom: 5px;
+}
+
+.moveLeft {
+  background-image: url(../IMG/left.png);
+  right: 107px;
+  bottom: 40px;
+}
+
+.moveRight {
+  background-image: url(../IMG/right.png);
+  right: 37px;
+  bottom: 40px;
+}
+
+.moveCenter {
+  background-image: url(../IMG/center.png);
+  right: 72px;
+  bottom: 40px;
+}
+
+.zoomIn {
+  background-image: url(../IMG/zoomIn.png);
+  right: 5px;
+  bottom: 110px;
+}
+
+.zoomOut {
+  background-image: url(../IMG/zoomOut.png);
+  right: 5px;
+  bottom: 75px;
 }
 
 .control {
-
+  width: 133px;
+  height: 143px;
 }
 
 .help {
   top: 5px;
   right: 5px;
+  width: 480px;
 }
 
 .scoreboard .open {
   background-image: url(../IMG/scoreboard.png);
 }
 
-.dashboard .open {
-  background-image: url(../IMG/dashboard.png);
+.settings .open {
+  background-image: url(../IMG/settings.png);
 }
 
 .help .open {
   background-image: url(../IMG/help.png);
+}
+
+.navigation .open {
+  background-image: url(../IMG/navigation.png);
 }
 
 .close {
@@ -170,9 +261,7 @@ p {
   font-weight: bold;
 }
 
-.field {
-  overflow: hidden;
-}
+
 
 .unit {
   float: left;
@@ -181,21 +270,28 @@ p {
 .small .unit {
   width: 16px;
   height: 16px;
+/*
   background-image: url(../IMG/grid_16.png)
+*/
 }
 
 .medium .unit {
   width: 24px;
   height: 24px;
+/*
   background-image: url(../IMG/grid_24.png)
+*/
 }
 
 .big .unit {
   width: 32px;
   height: 32px;
+/*
   background-image: url(../IMG/grid_32.png)
+*/
 }
 
+/*
 .small .unit:hover {
   background-image: url(../IMG/dot_16.png)
 }
@@ -207,3 +303,75 @@ p {
 .big .unit:hover {
   background-image: url(../IMG/dot_32.png)
 }
+*/
+
+.unit {
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.unit {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='512px' viewBox='0 0 444 444' width='512px'><path d='m7 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m7 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/></svg>");  
+  
+}
+
+.unit:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='512px' viewBox='0 0 444 444' width='512px'><path d='m7 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m7 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><circle cx='222' cy='222' r='100' fill='rgb(100,100,100)' /></svg>");
+}
+
+.player1 .unit:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='512px' viewBox='0 0 444 444' width='512px'><path d='m7 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m7 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><circle cx='222' cy='222' r='100' fill='rgb(100,100,100)' /><circle cx='222' cy='222' r='150' stroke='rgb(25,125,125)' stroke-width='50' fill='transparent' /></svg>");
+}
+
+.player2 .unit:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='512px' viewBox='0 0 444 444' width='512px'><path d='m7 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m7 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><circle cx='222' cy='222' r='100' fill='rgb(100,100,100)' /><circle cx='222' cy='222' r='150' stroke='rgb(125,25,125)' stroke-width='50' fill='transparent' /></svg>");
+}
+
+.unit.player1 {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='512px' viewBox='0 0 444 444' width='512px'><path d='m7 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m7 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><circle cx='222' cy='222' r='100' fill='rgb(25,125,125)' /></svg>");
+}
+
+.unit.player2 {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='512px' viewBox='0 0 444 444' width='512px'><path d='m7 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 0h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m7 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><path d='m256 249h181c3.867188 0 7 3.132812 7 7v181c0 3.867188-3.132812 7-7 7h-181c-3.867188 0-7-3.132812-7-7v-181c0-3.867188 3.132812-7 7-7zm0 0' fill='rgb(200,200,200)'/><circle cx='222' cy='222' r='100' fill='rgb(125,25,125)' /></svg>");
+}
+
+.unit svg {
+  width: 24px;
+  height: 24px;
+}
+
+.unit svg .player1 {
+  fill: rgba(25,125,125, 0.3);
+}
+
+.unit svg .border.player1 {
+  fill: none;
+  stroke: rgba(25,125,125, 1);
+  stroke-width: 24px;
+}
+
+.unit svg .player2 {
+  fill: rgba(125,25,125, 0.3);
+}
+
+.unit svg .border.player2 {
+  fill: none;
+  stroke: rgba(125,25,125, 1);
+  stroke-width: 24px;
+}
+
+.squareElem {
+  width: 10px;
+  height: 10px;
+  border: red solid 3px;;
+}
+
+/*---------------------------------------------------------
+*/
+
+.cursor {
+  fill: #ff0;
+}
+
+
+
