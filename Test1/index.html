@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Geekhub-JS_Test2_Form_validation</title>
+    <script src='./JS/index.js'></script>
+  </head>
+  <body>
+    <span style="white-space: pre-line;">
+      1) Create a class called Person with the following conditions.
+      Attributes: name, age, DNI, sex (M for male, F for female), weight and height.
+      Every attribute, except DNI, will have default values according to its type (0 for numbers, empty string for String, etc..). Sex will be male by default.
+      2) Create the following constructors:
+      A constructor with default values.
+      A constructor with name, age and sex as parameters (other values by default).
+      A constructor with all attributes received as parameters.
+      3) Create the following methods:
+      
+      calculateIMC()
+      
+      This method will calculate if the person is in its ideal weight. Use this formula to calculate it: (weight in KG)/(height^2  in Mts.).
+      If the result is less than 20, the function will return -1.
+      If the result is a number between 20 and 25 (included), means that the person is under its ideal weight and the function must return 0.
+      If the result is a number above 25 means the person is overweight and the function must return 1.
+      
+      isAdult()
+      Will return 1 if the person is 18 or above and 0 if it’s not.
+      checkSex(sex)
+      Will check if the value for sex is correct or not. If it’s not, will set sex as M by default.
+      toString()
+      Returns all the information from the object.
+      createDNI()
+      Will create an 8 figure random number and assign it to DNI attribute. This function will be called when the object is created.
+      Create SET methods for every parameter but DNI.
+      
+      4) Create a runnable class that executes the following:
+      Asks the user for name, age, sex, weight and height. NOTE: no need to create an interface, you can just set the values in variables to use for creating the following objects.
+      Create 3 objects of class Person as follows:
+      First one will have the previous asked values.
+      Second one will have all of the previous asked values BUT weight and height.
+      Third one will have all values by default. Use SET methods to assign the values to the attributes.
+      For each object check if the person is in its ideal weight, overweight or underweight.
+      For each object check if the person is an adult.
+      Finally show all the information of each object. 
+    </span>
+  </body>
+</html>
