@@ -1,0 +1,47 @@
+html {
+  margin: 0;
+  padding: 0;
+}  
+  
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10pt;
+}
+
+input {
+  position: absolute;
+  left: 125px;
+  width: 250px;
+  padding: 2px;
+}
+
+input[type="submit"] {
+  width: 258px;
+}
+
+input + span {
+  position: absolute;
+  left: 400px;
+}
+
+p {
+  position: relative;
+  padding: 3px;
+  margin: 3px 0 0 5px;
+}
+
+input.error {
+  border: solid 2px red;
+}
+
+span.error {
+  color: red;
+}
+
+input.valid {
+  border: solid 2px limegreen;
+}
+
+span.valid {
+  color: limegreen;
+}
