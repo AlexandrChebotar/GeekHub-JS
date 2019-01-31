@@ -24,11 +24,8 @@ window.onload = function() {
   }
 
 
-  
-
   fieldElem.addEventListener('click', handler);
-  
-  
+   
 
   fieldElem.addEventListener('mousedown', enableMoving);
   fieldElem.addEventListener('mouseup', disableMoving);
@@ -323,7 +320,10 @@ window.onload = function() {
     this.saveToLocalStorage();
   };
 
-
+/*
+*
+*
+*/
   function Field(cols, rows, unitSize) {
     this.firstCol = 0;
     this.firstRow = 0;
