@@ -1,3 +1,9 @@
-Игра "Точки".
+Game "Points"
 
-Пока реализован не весь изначально задуманный функционал. Дописываю потихоньку.
+TODO:
+* Settings;
+* Time control;
+* Hotkeys;
+* Mouse dragging;
+* Minimap;
+* Add Node.js back-end;
