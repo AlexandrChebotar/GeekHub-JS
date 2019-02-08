@@ -1,5 +1,4 @@
-// Обработка WEB-интерфейса
-//'use strict'
+'use strict'
 
 window.onload = function() {
 
