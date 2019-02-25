@@ -42,8 +42,8 @@ class Editor extends Component {
     const {summary, details} = this.state;
     return (
       <form className="editor">
-          <input type="text" value={summary} className="summary" onChange={this.onSummaryChange} /> 
-          <textarea rows="3" value={details} className="details" onChange={this.onDetailsChange} />
+          <input type="text" value={summary} className="summary" onChange={this.onSummaryChange} placeholder="Что нужно сделать?"/> 
+          <textarea rows="3" value={details} className="details" onChange={this.onDetailsChange} placeholder="Детали"/>
           <Button name="Save" onClick={this.onSave}/>
           <Button name="Cancel" onClick={this.onCancel}/>
       </form>
