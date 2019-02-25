@@ -278,7 +278,7 @@ window.onload = function() {
   function Settings() {
     this.player1 = {name: "player1", color: 'rgb(25,125,125)'};
     this.player2 = {name: "player2", color: 'rgb(125,25,125)'};
-    this.score = 'point'; // point/area
+    this.score = 'area'; // point/area
     this.maxWidth = null;
     this.maxHeight = null;
     this.gameTimeLimit = null;
@@ -514,7 +514,7 @@ window.onload = function() {
         var pathScores = game.currentPlayer == 'player1' ? path.scores[0] : path.scores[1];
         if ((scores < pathScores) || (scores == pathScores && area < path.scores[2])) {
           scores = pathScores;
-          area = path.scores[2];
+          var area = path.scores[2];
           bestPath = path;
         }
       }
@@ -606,8 +606,10 @@ window.onload = function() {
     this.scores = game.currentPlayer == 'player1' ? [scores, - enemyScores, area] : [- enemyScores, scores, area];
   };
   Path.prototype.locateInnerUnits = function() {
-    var minX = maxX = this.nodes[0].unit.position[0];
-    var minY = maxY = this.nodes[0].unit.position[1];
+    var minX = this.nodes[0].unit.position[0];
+    var minY = this.nodes[0].unit.position[1];
+    var maxX = this.nodes[0].unit.position[0];
+    var maxY = this.nodes[0].unit.position[1];
     for (var i = 1; i < this.nodes.length; i++) {
       if (minX > this.nodes[i].unit.position[0]) {
         minX = this.nodes[i].unit.position[0];
