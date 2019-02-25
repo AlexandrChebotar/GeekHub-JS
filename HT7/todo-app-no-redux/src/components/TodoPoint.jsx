@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from './Button';
-import {Editor} from './Editor.jsx';
+import {Editor} from './Editor';
 
 
 class TodoPoint extends Component {
