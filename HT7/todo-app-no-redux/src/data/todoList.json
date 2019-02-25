@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "summary": "Изучить React",
+      "details": "Прочитать документацию. Перейти к практике.",
+      "made": false,
+      "edited": false,
+      "detailedView": true
+    },
+    {
+      "id": 2,
+      "summary": "Сходить в магазин",
+      "details": "Купить продукты.",
+      "made": false,
+      "edited": false,
+      "detailedView": false
+    },
+    {
+      "id": 3,
+      "summary": "Сделать TODO-приложение",
+      "details": "C помощью React и Redux сделать TODO-приложение.",
+      "made": true,
+      "edited": false,
+      "detailedView": true
+    }
+]
