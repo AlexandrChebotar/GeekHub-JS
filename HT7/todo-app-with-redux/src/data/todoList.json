@@ -1,0 +1,29 @@
+{
+  "todoIdList": [1, 2, 3],
+  "todos": {
+    "1": {
+      "id": 1,
+      "summary": "Изучить React",
+      "details": "Прочитать документацию. Перейти к практике.",
+      "completed": false,
+      "edited": false,
+      "detailed": true
+    },
+    "2": {
+      "id": 2,
+      "summary": "Сходить в магазин",
+      "details": "Купить продукты.",
+      "completed": false,
+      "edited": false,
+      "detailed": false
+    },
+    "3": {
+      "id": 3,
+      "summary": "Сделать TODO-приложение",
+      "details": "C помощью React и Redux сделать TODO-приложение.",
+      "completed": true,
+      "edited": false,
+      "detailed": true
+    }
+  }
+}
